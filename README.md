@@ -2,9 +2,9 @@
 
 Simple PHP based GeoIP server that based off: https://github.com/fiorix/freegeoip
 
-This has a built in cron to update the database once per day. And it uses the PHP GeoIP C extension to improve response time.
+This has a built-in cron to update the database once per day. And it uses the PHP GeoIP C extension to improve response time.
 
-Container uses port 80 and can output the result in either JSON or XML 
+Container uses port 80 by default and can output the result in either JSON or XML 
 
 localhost:80/json/8.8.8.8
 ```
@@ -44,4 +44,5 @@ You need to sign up for a free account on Maxmind to use, and include these envi
 ```
 USER_ID={{USER_ID_HERE}} 
 LICENSE_KEY={{LICENCE_KEY_HERE}}
+PORT=80
 ```
