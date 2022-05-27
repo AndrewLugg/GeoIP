@@ -39,6 +39,7 @@ localhost:80/xml/8.8.8.8
 </Responese>
 ```
 
+A prebuilt docker image is available at: [learningstaircase/geoip](https://hub.docker.com/r/learningstaircase/geoip)
 You need to sign up for a free account on Maxmind to use, and include these enviromental variables:
 ```
 USER_ID={{USER_ID_HERE}} 
