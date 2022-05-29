@@ -11,7 +11,8 @@ RUN apt-get update \
     && install-php-extensions geoip zip xmlrpc
 RUN curl -L -s $(curl -L -s https://api.github.com/repos/maxmind/geoipupdate/releases/latest | grep -o -E "https://(.*)geoipupdate_(.*)_linux_amd64.deb") --output geoip-update.deb
 
-RUN (crontab -l ; echo "16 3 * * * /usr/bin/geoipupdate -v >> /proc/1/fd/1 2>&1") | crontab
+#Arbitary time, just something random once per day.
+RUN (crontab -l ; echo "55 21 * * * /usr/bin/geoipupdate -v >> /proc/1/fd/1 2>&1") | crontab
 
 RUN dpkg -i geoip-update.deb
 
