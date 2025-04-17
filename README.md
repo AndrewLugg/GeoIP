@@ -1,5 +1,7 @@
 # GeoIP
 
+Old version running php 7.4
+
 Simple PHP based GeoIP server that based off: https://github.com/fiorix/freegeoip
 
 This has a built-in cron to update the database once per day. And it uses the PHP GeoIP C extension to improve response time.
