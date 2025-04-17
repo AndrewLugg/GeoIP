@@ -1,7 +1,5 @@
 <?php
 
-require_once 'vendor/autoload.php';
-
 function get_ip()
 {
     $ip = isset($_SERVER['HTTP_X_FORWARDED_FOR'])  ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
