@@ -24,6 +24,7 @@ ADD .htaccess /var/www/html/.htaccess
 
 # Add the maxminddb extension to php.ini
 RUN echo "extension=maxminddb.so" >> /usr/local/etc/php/php.ini
+RUN echo "display_errors = Off" >> /usr/local/etc/php/php.ini
 
 COPY index.php index.php
 
