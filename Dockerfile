@@ -28,8 +28,8 @@ ADD .htaccess /var/www/html/.htaccess
 RUN echo "extension=maxminddb.so" >> /usr/local/etc/php/php.ini
 RUN echo "display_errors = Off" >> /usr/local/etc/php/php.ini
 
-RUN --mount=type=secret,id=GEOIP_URL \
-    curl -sS "$(cat /run/secrets/geoipurl)" -o GeoIP2-City.tar.gz
+RUN --mount=type=secret,id=geoip_url \
+    curl -sS "$(cat /run/secrets/geoip_url)" -o GeoIP2-City.tar.gz
 RUN tar -xzf GeoIP2-City.tar.gz -C /usr/share/GeoIP/ --strip-components=1 \
     --wildcards '*/GeoLite2-City.mmdb'
 
