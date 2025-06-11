@@ -26,8 +26,8 @@ jobs:
       with:
         push: true
         tags: learningstaircase/geoip:latest
-        secrets:
-          id: geoipurl,env=GEOIP_URL
+        secrets: |
+          id=geoipurl,env=GEOIP_URL
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4.1.0
