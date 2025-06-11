@@ -22,12 +22,12 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build the Docker image
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v6
       with:
         push: true
         tags: learningstaircase/geoip:latest
         secrets: |
-          id=geoipurl,env=GEOIP_URL
+          GEOIP_URL=${{ secrets.GEOIP_URL }}
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4.1.0
