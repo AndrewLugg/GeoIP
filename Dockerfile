@@ -4,6 +4,8 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 
 RUN chmod +x /usr/local/bin/install-php-extensions
 
+ARG GEOIP_URL
+
 # Install GeoIP PHP extension.
 RUN apt-get update
 RUN apt-get install -y libmaxminddb-dev wget cron unzip vim
@@ -28,8 +30,7 @@ ADD .htaccess /var/www/html/.htaccess
 RUN echo "extension=maxminddb.so" >> /usr/local/etc/php/php.ini
 RUN echo "display_errors = Off" >> /usr/local/etc/php/php.ini
 
-RUN --mount=type=secret,id=geoip_url \
-    curl -sS "$(cat /run/secrets/geoip_url)" -o GeoIP2-City.tar.gz
+RUN curl -sS "$GEOIP_URL" -o GeoIP2-City.tar.gz
 RUN tar -xzf GeoIP2-City.tar.gz -C /usr/share/GeoIP/ --strip-components=1 \
     --wildcards '*/GeoLite2-City.mmdb'
 
