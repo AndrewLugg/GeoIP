@@ -10,7 +10,8 @@ function get_ip()
     }
     return $ip;
 }
-function xml_encode($mixed, $domElement=null, $DOMDocument=null) {
+function xml_encode($mixed, $domElement=null, $DOMDocument=null): void
+{
     if (is_null($DOMDocument)) {
         $DOMDocument =new DOMDocument;
         $DOMDocument->formatOutput = true;
@@ -91,7 +92,7 @@ if ($pathParts[1] == "xml") {
         ]
     ];
     header('Content-Type:application/xml');
-    echo xml_encode([$response]);
+    xml_encode([$response]);
 } else {
     $response = [
         "ip"=> $ip,
