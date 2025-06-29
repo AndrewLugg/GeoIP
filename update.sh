@@ -1,5 +1,7 @@
 #!/bin/sh
 # Update GeoIP2-City database
+URL=$(cat /root/url.conf 2>/dev/null)
+
 if [ -n "${URL}" ]; then
   # Check if the URL is provided
   curl -L -s ${URL} -o GeoIP2-City.tar.gz

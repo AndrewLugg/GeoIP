@@ -8,6 +8,8 @@ ProductIds GeoLite2-City
 DatabaseDirectory /usr/share/GeoIP
 EOF
 
+echo "$URL" > /root/url.conf
+
 /root/update.sh
 
 if [ -n "${PORT}" ]; then
